@@ -7,15 +7,12 @@ const classNames = [" 19520 / EM501: Group Project", " 19520: Group Project", " 
 document.addEventListener("readystatechange", (e) => {
     if (e.target.readyState === 'complete') {
         let ul = document.querySelector("ul.list-group.classlist");
-        let classes = ul.childNodes;
-        console.dir(ul);
-        for (let i = 1; i < ul.childNodes.length; i++) {
-            if (classNames.indexOf(classes[i].innerText) === -1) {
-                classes[i].innerHTML = '';
+        ul.childNodes.forEach(childNode => {
+            if (classNames.find(className => className == childNode.textContent)) {
+                childNode.textContent = '';
             }
-        }
+        })
     }
 });
-
 
 
