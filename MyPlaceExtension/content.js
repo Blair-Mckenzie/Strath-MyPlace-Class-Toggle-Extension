@@ -8,10 +8,9 @@ document.addEventListener("readystatechange", (e) => {
     if (e.target.readyState === 'complete') {
         let ul = document.querySelector("ul.list-group.classlist");
         ul.childNodes.forEach(childNode => {
-            if (classNames.find(className => className == childNode.textContent)) {
+            if (!classNames.includes(childNode.innerText)) {
                 childNode.textContent = '';
-            }
-        })
+            }})
     }
 });
 
